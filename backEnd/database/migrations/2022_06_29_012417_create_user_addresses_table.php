@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('user_addresses', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user-id')->references('id')->on('users');
+            $table->foreignId('user_id')->references('id')->on('users');
             $table->string('number');
-            $table->string('address');
+            $table->text('address');
             $table->timestamps();
         });
     }

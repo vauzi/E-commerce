@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserAddressController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +18,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('useraddress', [UserAddressController::class, 'index']);
+Route::post('useraddress', [UserAddressController::class, 'store']);
+Route::get('useraddress/{id}', [UserAddressController::class, 'show']);
+Route::put('useraddress/{id}', [UserAddressController::class, 'update']);
+Route::delete('useraddress/{id}', [UserAddressController::class, 'destroy']);

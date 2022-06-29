@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Faker\Provider\bg_BG\PhoneNumber;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,9 @@ class UserAddressFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'user_id'   => mt_rand(1, 5),
+            'number'    => $this->faker->phoneNumber(),
+            'address'   => $this->faker->sentence()
         ];
     }
 }

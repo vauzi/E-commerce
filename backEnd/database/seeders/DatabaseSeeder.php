@@ -24,5 +24,6 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserSeeder::class
         ]);
+        \App\Models\UserAddress::factory(10)->create();
     }
 }
