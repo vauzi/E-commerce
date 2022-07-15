@@ -20,7 +20,11 @@ class UserAddressFactory extends Factory
         return [
             'user_id'   => mt_rand(1, 5),
             'number'    => $this->faker->phoneNumber(),
-            'address'   => $this->faker->sentence()
+            'village'   => $this->faker->sentence(1),
+            'district'  => $this->faker->sentence(1),
+            'province'  => $this->faker->sentence(1),
+            'postal_code'   => mt_rand(500000, 900000),
+            'complate_address'  => $this->faker->paragraph(),
         ];
     }
 }

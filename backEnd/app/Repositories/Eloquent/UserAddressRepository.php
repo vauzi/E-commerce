@@ -12,12 +12,21 @@ class UserAddressRepository implements UserAddressRepositoryInterface
         $result = UserAddress::all();
         return $result;
     }
-    public function create(array $attributes)
+    public function getByUserId($id)
+    {
+        $result = UserAddress::where(['user_id' => $id])->get();
+        return $result;
+    }
+    public function create($userID, array $attributes)
     {
         $result = UserAddress::create([
-            'user_id'   => $attributes['user_id'],
+            'user_id'   => $userID,
             'number'    => $attributes['number'],
-            'address'   => $attributes['address']
+            'village'   => $attributes['village'],
+            'district'  => $attributes['district'],
+            'province'  => $attributes['province'],
+            'postal_code'   => $attributes['postal_code'],
+            'complate_address'  => $attributes['complate_address'],
         ]);
         return $result->fresh();
     }
@@ -32,7 +41,11 @@ class UserAddressRepository implements UserAddressRepositoryInterface
         $result = $get->update([
             'user_id'   => $attributes['user_id'],
             'number'    => $attributes['number'],
-            'address'   => $attributes['address']
+            'village'   => $attributes['village'],
+            'district'  => $attributes['district'],
+            'province'  => $attributes['province'],
+            'postal_code'   => $attributes['postal_code'],
+            'complate_address'  => $attributes['complate_address'],
         ]);
         return $result;
     }

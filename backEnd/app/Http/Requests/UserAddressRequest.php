@@ -25,7 +25,11 @@ class UserAddressRequest extends FormRequest
     {
         return [
             'number'    => 'required',
-            'address'   => 'required'
+            'village'   => 'required',
+            'district'  => 'required',
+            'province'  => 'required',
+            'postal_code'   => 'required|numeric',
+            'complate_address'  => 'required',
         ];
     }
 }

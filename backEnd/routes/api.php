@@ -19,8 +19,10 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('useraddress', [UserAddressController::class, 'index']);
-Route::post('useraddress', [UserAddressController::class, 'store']);
-Route::get('useraddress/{id}', [UserAddressController::class, 'show']);
-Route::put('useraddress/{id}', [UserAddressController::class, 'update']);
-Route::delete('useraddress/{id}', [UserAddressController::class, 'destroy']);
+Route::middleware(['auth:sanctum'])->group(function () {
+    Route::get('user-address', [UserAddressController::class, 'index']);
+    Route::post('user-address', [UserAddressController::class, 'store']);
+    Route::get('user-address/{id}', [UserAddressController::class, 'show']);
+    Route::put('user-address/{id}', [UserAddressController::class, 'update']);
+    Route::delete('user-address/{id}', [UserAddressController::class, 'destroy']);
+});

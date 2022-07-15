@@ -17,7 +17,11 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->references('id')->on('users');
             $table->string('number');
-            $table->text('address');
+            $table->string('village');
+            $table->string('district');
+            $table->string('province');
+            $table->integer('postal_code');
+            $table->text('complate_address');
             $table->timestamps();
         });
     }

@@ -11,6 +11,14 @@ class UserAddress extends Model
     protected $fillable = [
         'user_id',
         'number',
-        'address',
+        'village',
+        'district',
+        'province',
+        'postal_code',
+        'complate_address',
     ];
+    // public function user()
+    // {
+    //     return $this->belongsTo(User::class);
+    // }
 }
