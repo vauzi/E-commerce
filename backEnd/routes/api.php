@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\UserAddressController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -25,4 +26,14 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('user-address/{id}', [UserAddressController::class, 'show']);
     Route::put('user-address/{id}', [UserAddressController::class, 'update']);
     Route::delete('user-address/{id}', [UserAddressController::class, 'destroy']);
+});
+
+Route::get('category', [ProductCategoryController::class, 'index']);
+
+Route::middleware(['auth:sanctum', 'admin'])->group(function () {
+    // Route::resource('category', ProductCategoryController::class)->except('create', 'edit');
+    Route::post('category', [ProductCategoryController::class, 'store']);
+    Route::get('category/{id}', [ProductCategoryController::class, 'show']);
+    Route::put('category/{id}', [ProductCategoryController::class, 'update']);
+    Route::delete('category/{id}', [ProductCategoryController::class, 'destroy']);
 });
