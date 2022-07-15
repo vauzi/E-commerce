@@ -24,10 +24,10 @@ class UserAddressRequest extends FormRequest
     public function rules()
     {
         return [
-            'number'    => 'required',
-            'village'   => 'required',
-            'district'  => 'required',
-            'province'  => 'required',
+            'number'    => 'required|max:13',
+            'village'   => 'required|max:225',
+            'district'  => 'required|max:225',
+            'province'  => 'required|max:225',
             'postal_code'   => 'required|numeric',
             'complate_address'  => 'required',
         ];
