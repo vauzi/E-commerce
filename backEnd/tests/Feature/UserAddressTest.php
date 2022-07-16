@@ -43,6 +43,7 @@ class UserAddressTest extends TestCase
         $update = UserAddress::factory()->create(['user_id' => $user->id]);
 
         $response = $this->put('api/user-address/' . $update->id, $update->toArray());
+
         $response->assertStatus(200);
     }
     public function test_user_address_destroy_can_be_render()
